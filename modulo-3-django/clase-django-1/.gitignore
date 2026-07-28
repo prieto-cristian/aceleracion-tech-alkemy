@@ -1,2 +1,4 @@
 .idea
 .venv
+.proyecto_clase/__pycache__/
+__pycache__/
