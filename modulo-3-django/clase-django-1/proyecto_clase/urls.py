@@ -20,7 +20,14 @@ from django.urls import path
 
 def hola_mundo(request):
     return HttpResponse("<h1>HOLA MUNDO</h1>")
+
+
+def hola_mundo_string(request):
+    return  HttpResponse("Hola Mundo como string")
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", hola_mundo)
+    path("", hola_mundo),
+    path("string", hola_mundo_string)
 ]
