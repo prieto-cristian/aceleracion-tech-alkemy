@@ -1,3 +1,4 @@
+import datetime
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
 
@@ -17,3 +18,9 @@ def mostrar_informes(request, mes):
         return HttpResponse(infome_meses[mes])
     except KeyError:
         return HttpResponseNotFound("No hay informes para el mes solicitado")
+
+
+def fecha_actual(request):
+    now = datetime.datetime.now()
+    html = "<html lang='es'><body>Fecha actual: %s.</body></html>" % now
+    return HttpResponse(html)
