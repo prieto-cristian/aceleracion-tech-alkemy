@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
+
 # Create your views here.
 infome_meses = {"enero": "Comienzo del anio con 79.000 ventas",
                     "febrero": "Las ventas cayeron un 20%",
@@ -12,4 +13,7 @@ def hola_mundo(request):
 
 
 def mostrar_informes(request, mes):
-    return HttpResponse(infome_meses[mes])
+    try:
+        return HttpResponse(infome_meses[mes])
+    except KeyError:
+        return HttpResponseNotFound("No hay informes para el mes solicitado")
