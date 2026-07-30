@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.http import HttpResponse
-from django.urls import path
+from django.urls import path, include
 
 def hola_mundo(request):
     return HttpResponse("<h1>HOLA MUNDO</h1>")
@@ -29,5 +29,6 @@ def hola_mundo_string(request):
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", hola_mundo),
-    path("string", hola_mundo_string)
+    path("string", hola_mundo_string),
+    path("message/", include("informes.urls"))
 ]
