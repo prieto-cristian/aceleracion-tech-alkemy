@@ -10,3 +10,8 @@ def mostrar_libros(request):
         return HttpResponse(libros)
     else:
         return HttpResponse("No hay libros disponibles en este momento")
+
+
+def crear_autor(request, nombre, fecha_nacimiento):
+    models.Autor.objects.create(nombre=nombre, fecha_nacimiento=fecha_nacimiento)
+    return HttpResponse(f"Autor: {nombre} creado exitosamente")
