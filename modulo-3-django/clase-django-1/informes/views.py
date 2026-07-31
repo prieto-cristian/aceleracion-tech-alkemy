@@ -13,9 +13,10 @@ def hola_mundo(request):
     return HttpResponse("HOLA MUNDO DESDE VIEWS.PY")
 
 
-def mostrar_informes(request, mes):
+def mostrar_informes(request, mes, dia):
     try:
-        return HttpResponse(infome_meses[mes])
+        return HttpResponse(f"RESUMEN HASTA EL {dia} de {mes}:"
+                            + f"\n{infome_meses[mes]}")
     except KeyError:
         return HttpResponseNotFound("No hay informes para el mes solicitado")
 
