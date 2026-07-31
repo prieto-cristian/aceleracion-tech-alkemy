@@ -30,5 +30,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", hola_mundo),
     path("string", hola_mundo_string),
-    path("message/", include("informes.urls"))
+    path("message/", include("informes.urls")),
+    path("libreria/", include("libreria.urls"))
 ]
